@@ -2,8 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 def getData():
-    newsDict = {"data":[]}
-
+    news = []
     url = "https://in.ign.com/?page=1&ist=broll"
     try:
         r = requests.get(url)
@@ -42,7 +41,7 @@ def getData():
                 "content":content,
                 "imageUrl":img
                 }
-        newsDict["data"].append(newsObject)
+        news.append(newsObject)
 
-    return newsDict
+    return news
 

@@ -3,26 +3,44 @@ import json
 from bs4 import BeautifulSoup as bs
 import html
 
-url = "https://techcrunch.com/wp-json/tc/v1/magazine?page=1&_embed=true&cachePrevention=0"
+def getData():
+    url = "https://techcrunch.com/wp-json/tc/v1/magazine?page=1&_embed=true&cachePrevention=0"
+    try:
+        r = requests.get(url).json()
+    except Exception as e:
+        print(e)
+        exit(-1)
 
-r = requests.get(url).json()
+    news = []
 
-news = []
+    for data in r:
+        try:
+            encodedTitle = data["title"]["rendered"]
+            title = html.unescape(encodedTitle)
+        except:
+            title = ""
+        try:
+            contentEncoded = data["excerpt"]["rendered"]
+            content = bs(contentEncoded,"lxml").p.text
+        except:
+            content = ""
+        try:
+            img = data["jetpack_featured_media_url"]
+        except:
+            img = ""
+        try:
+            url = data["shortlink"]
+        except:
+            url = ""
 
-for data in r:
-    encodedTitle = data["title"]["rendered"]
-    title = html.unescape(encodedTitle)
-    contentEncoded = data["excerpt"]["rendered"]
-    content = bs(contentEncoded,"lxml").p.text
-    img = data["jetpack_featured_media_url"]
-    url = data["shortlink"]
+        newsData = {
+                "title":title,
+                "content":content,
+                "imageUrl":img,
+                "newsUrl":url
+                }
+        news.append(newsData)
+    return news
 
-    newsData = {
-            "title":title,
-            "content":content,
-            "imageUrl":img,
-            "newsUrl":url
-            }
-    news.append(newsData)
 
-print(news)
+print(getData())

@@ -1,7 +1,8 @@
 import requests
-import json 
+import json
 from bs4 import BeautifulSoup as bs
 import html
+
 
 def getData():
     url = "https://techcrunch.com/wp-json/tc/v1/magazine?page=1&_embed=true&cachePrevention=0"
@@ -17,28 +18,28 @@ def getData():
         try:
             encodedTitle = data["title"]["rendered"]
             title = html.unescape(encodedTitle)
-        except:
+        except BaseException:
             title = ""
         try:
             contentEncoded = data["excerpt"]["rendered"]
-            content = bs(contentEncoded,"lxml").p.text
-        except:
+            content = bs(contentEncoded, "lxml").p.text
+        except BaseException:
             content = ""
         try:
             img = data["jetpack_featured_media_url"]
-        except:
+        except BaseException:
             img = ""
         try:
             url = data["shortlink"]
-        except:
+        except BaseException:
             url = ""
 
         newsData = {
-                "title":title,
-                "content":content,
-                "imageUrl":img,
-                "newsUrl":url
-                }
+            "title": title,
+            "content": content,
+            "imageUrl": img,
+            "newsUrl": url
+        }
         news.append(newsData)
     return news
 

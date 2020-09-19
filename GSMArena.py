@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
-# from pprint import pprint
+from pprint import pprint
+
 
 def getData():
     url = "https://www.gsmarena.com/news.php3"
@@ -10,7 +11,7 @@ def getData():
         print(e)
         exit(-1)
     soup = bs(r.content, "lxml")
-    dataList = soup.findAll("div", class_ = 'news-item')
+    dataList = soup.findAll("div", class_='news-item')
 
     BASE_URL = 'https://www.gsmarena.com/'
     news = []
@@ -33,11 +34,12 @@ def getData():
             img = ""
 
         newsData = {
-                "title": title,
-                "content": content,
-                "imageUrl": img,
-                "newsUrl": url}
+            "title": title,
+            "content": content,
+            "imageUrl": img,
+            "newsUrl": url}
         news.append(newsData)
     return news
+
 
 pprint(getData())

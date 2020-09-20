@@ -33,7 +33,7 @@ def getData():
             content = ""
         try:
             img = article.img.get("srcset").replace(
-                "2x", "").replace(" ", "").split(",")
+                "2x", "").replace(" ", "").split(",")[-1]
         except BaseException:
             img = ""
 

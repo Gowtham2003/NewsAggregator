@@ -19,9 +19,9 @@ def getData():
         except BaseException:
             title = ""
         try:
-            url = data.find("a").get("href")
+            newsUrl = data.find("a").get("href")
         except BaseException:
-            url = ""
+            newsUrl = ""
         try:
             content = data.find(
                 "p",
@@ -42,7 +42,7 @@ def getData():
                 "title": title,
                 "content": content,
                 "imageUrl": img,
-                "newsUrl": url}
+                "newsUrl": newsUrl}
         news.append(newsData)
     return news
 

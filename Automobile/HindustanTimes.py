@@ -1,37 +1,37 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-
 def getData():
-    news = []
-
-    URL = "https://science.thewire.in/latest/"
+    BASE_URL = "https://auto.hindustantimes.com"
 
     try:
-        r = requests.get(URL)
+        r = requests.get(BASE_URL).content
 
     except Exception as e:
         print(e)
         exit(-1)
 
-    soup = bs(r.content, "lxml")
+    news = []
 
-    div = soup.findAll("div", {"class": "small-12 medium-4 columns"})
-    for data in div:
+    soup = bs(r,"lxml")
+
+    section = soup.findAll("section",class_="cardHolder expandObject page-view-candidate")
+
+    for data in section:
         try:
-            title = data.find("div", class_="post-title").text
+            title = data.find("div", class_="figcaption").text.replace("\n","")
         except BaseException:
             title = ""
         try:
-            newsUrl = data.find("div", class_="post-title").a.get('href')
+            newsUrl = data.find("meta",{"itemprop":"url"}).get("content")
         except BaseException:
             newsUrl = ""
         try:
-            imageUrl = data.find("div").figure.a.img.get("src")
+            imageUrl = data.img.get("data-src")
         except BaseException:
             imageUrl = ""
         try:
-            content = data.find("div").p.text
+            content = data.find("ul", class_="highlights").text.replace(".","\n")
         except BaseException:
             content = ""
 
@@ -43,6 +43,5 @@ def getData():
         }
         news.append(newsData)
     return news
-
 
 print(getData())

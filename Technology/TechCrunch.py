@@ -30,15 +30,15 @@ def getData():
         except BaseException:
             img = ""
         try:
-            url = data["shortlink"]
+            newsUrl = data["shortlink"]
         except BaseException:
-            url = ""
+            newsUrl = ""
 
         newsData = {
             "title": title,
             "content": content,
             "imageUrl": img,
-            "newsUrl": url
+            "newsUrl": newsUrl
         }
         news.append(newsData)
     return news

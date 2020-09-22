@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup as bs
 
 
 def getData():
-    url = "https://www.pcgamer.com/news/"
+    BASE_URL = "https://www.pcgamer.com/news/"
     try:
-        r = requests.get(url)
+        r = requests.get(BASE_URL)
     except Exception as e:
         print(e)
         exit(-1)

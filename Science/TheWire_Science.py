@@ -23,9 +23,9 @@ def getData():
         except BaseException:
             title = ""
         try:
-            url = data.find("div", class_="post-title").a.get('href')
+            newsUrl = data.find("div", class_="post-title").a.get('href')
         except BaseException:
-            url = ""
+            newsUrl = ""
         try:
             imageUrl = data.find("div").figure.a.img.get("src")
         except BaseException:
@@ -39,7 +39,7 @@ def getData():
             "title": title,
             "content": content,
             "imageUrl": imageUrl,
-            "newsUrl": url
+            "newsUrl": newsUrl
         }
         news.append(newsData)
     return news

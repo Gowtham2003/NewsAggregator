@@ -4,10 +4,10 @@ import re
 
 def getData():
 
-    url = "https://www.cricketworld.com/"
+    BASE_URL = "https://www.cricketworld.com"
 
     try:
-        r = requests.get(url)
+        r = requests.get(BASE_URL)
         # print(r.content)
     except Exception as e:
         print(e)
@@ -17,7 +17,6 @@ def getData():
     regex = re.compile('.*mb link.*')
     dataList = soup.find('div',id = 'carousel_3').findAll("div", class_ = regex)
 
-    BASE_URL = 'https://www.cricketworld.com'
     news = []
     for data in dataList:
         try:

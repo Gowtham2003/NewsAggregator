@@ -44,4 +44,4 @@ def getData():
         news.append(newsData)
     return news
 
-print(len(getData()))
+# print(len(getData()))

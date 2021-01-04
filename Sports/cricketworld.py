@@ -1,19 +1,22 @@
 import requests
 from bs4 import BeautifulSoup as bs
-from pprint import pprint
-
+import re
 
 def getData():
-    url = "https://www.gsmarena.com/news.php3"
+
+    BASE_URL = "https://www.cricketworld.com"
+
     try:
-        r = requests.get(url)
+        r = requests.get(BASE_URL)
+        # print(r.content)
     except Exception as e:
         print(e)
         exit(-1)
-    soup = bs(r.content, "lxml")
-    dataList = soup.findAll("div", class_='news-item')
+    soup = bs(r.content.decode('utf-8'), "lxml")
 
-    BASE_URL = 'https://www.gsmarena.com/'
+    regex = re.compile('.*mb link.*')
+    dataList = soup.find('div',id = 'carousel_3').findAll("div", class_ = regex)
+
     news = []
     for data in dataList:
         try:
@@ -29,17 +32,17 @@ def getData():
         except BaseException:
             content = ""
         try:
-            img = data.find('img').get("src")
+            imageUrl = data.find('img').get("src")[2:]
         except BaseException:
-            img = ""
+            imageUrl = ""
 
         newsData = {
-            "title": title,
-            "content": content,
-            "imageUrl": img,
-            "newsUrl": newsUrl}
+                "title": title,
+                "content": content,
+                "imageUrl": imageUrl,
+                "newsUrl": newsUrl}
         news.append(newsData)
     return news
 
-
+# from pprint import pprint
 # pprint(getData())

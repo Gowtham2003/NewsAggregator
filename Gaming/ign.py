@@ -48,4 +48,4 @@ def getData():
     return news
 
 
-print(getData())
+# print(getData())

@@ -6,7 +6,7 @@ from Automobile import automobile as auto
 from Sports import sports
 import random
 
-_allCat = al.getAll()
+_allCat = al.getAll
 
 def getScience():
     science = al.getScience() + sci.getScience()

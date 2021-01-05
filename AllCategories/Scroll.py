@@ -59,7 +59,8 @@ def getScroll(query):
     return news
 
 
-cats = ['science', 'technology', 'world', 'culture', 'india', 'entertainnent', 'business',"music","books"]
-
-for i in cats:
-    print(len(getScroll(i)))
+def getAllScroll():
+    cats = ['science', 'technology', 'world', 'culture', 'india', 'entertainnent', 'business',"music","books"]
+    news = []
+    for i in cats:
+        news+=getScroll(i)

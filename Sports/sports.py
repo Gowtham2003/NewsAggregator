@@ -1,8 +1,10 @@
-from cricketworld import getData as cw
-from firstpost import getData as fl
+from .cricketworld import getData as cw
+from .firstpost import getData as fl
+import random 
 
 def getSports():
     sports = cw()+fl()
-    return sports.shuffle()
+    random.shuffle(sports)
+    return sports
 
 # print(len(getSports()))

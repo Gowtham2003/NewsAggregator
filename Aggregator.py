@@ -9,9 +9,9 @@ import random
 _allCat = al.getAll()
 
 def getScience():
-    sci = al.getScience() + sci.getScience()
-    random.shuffle(sci)
-    return sci
+    science = al.getScience() + sci.getScience()
+    random.shuffle(science)
+    return science
 def getTech():
     techn = al.getTech() + tech.getTech()
     random.shuffle(techn)

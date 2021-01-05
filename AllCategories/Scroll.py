@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-def getData(query):
+def getScroll(query):
 
     categories = {
             "science": "https://scroll.in/category/83/science-and-technology",
@@ -62,4 +62,4 @@ def getData(query):
 cats = ['science', 'technology', 'world', 'culture', 'india', 'entertainnent', 'business',"music","books"]
 
 for i in cats:
-    print(len(getData(i)))
+    print(len(getScroll(i)))

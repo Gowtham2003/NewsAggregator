@@ -1,4 +1,4 @@
-from HindustanTimes import getData as ht
+from .HindustanTimes import getData as ht
 
 def getAuto():
     return ht()

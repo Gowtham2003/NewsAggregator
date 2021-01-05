@@ -64,3 +64,4 @@ def getAllScroll():
     news = []
     for i in cats:
         news+=getScroll(i)
+    return news

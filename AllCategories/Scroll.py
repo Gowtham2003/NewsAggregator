@@ -11,7 +11,7 @@ def getScroll(query):
             "world": "https://scroll.in/category/3554/world",
             "culture":"https://scroll.in/category/107/culture",
             "india":"https://scroll.in/category/105/india",
-            "entertainnent":"https://scroll.in/category/3/film-and-tv",
+            "entertainment":"https://scroll.in/category/3/film-and-tv",
             "business":"https://scroll.in/category/77/business-and-economy",
             "music":"https://scroll.in/category/4/music",
             "books":"https://scroll.in/category/80/books-and-ideas"

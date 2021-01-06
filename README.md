@@ -8,7 +8,7 @@ API Which Fetches News from Lot of Websites
 ![ProjectTree](https://github.com/Gowtham2003/NewsAggregator/blob/master/screenshots/projectTree.png)
 
 
-##### Important Note:
+### Important Note:
 Aggregating News For A Single Category Takes Almost 10seconds or more 
 
 #### How to Use:

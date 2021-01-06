@@ -5,7 +5,7 @@ API Which Fetches News from Lot of Websites
 ### 📝 Get News From Handpicked Websites
 
 ## Project Tree:
-![ProjectTree](https://github.com/Gowtham2003/Gowtham2003/blob/master/screenshots/projectTree.png)
+![ProjectTree](https://github.com/Gowtham2003/NewsAggregator/blob/master/screenshots/projectTree.png)
 
 
 ##### Important Note:

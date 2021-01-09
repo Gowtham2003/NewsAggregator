@@ -20,8 +20,8 @@ def getEntertainment():
     return al.getEntertainment()
 def getBusiness():
     return al.getBusiness()
-def getCulture():
-    return al.getCulture()
+# def getCulture():
+    # return al.getCulture()
 def getIndia():
     return al.getIndia()
 def getAuto():

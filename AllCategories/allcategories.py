@@ -12,15 +12,9 @@ def getTech():
     return getNews('technology')
 def getWorld():
     return getNews('world')
-def getCulture():
-    return getNews('culture')
 def getIndia():
     return getNews('india')
 def getEntertainment():
     return getNews('entertainment')
 def getBusiness():
     return getNews('business')
-def getMusic():
-    return getNews('music')
-def getBooks():
-    return getNews('books')

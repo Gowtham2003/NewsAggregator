@@ -1,24 +1,26 @@
-from .Scroll import getScroll as scroll
-from .Scroll import getAllScroll
+# from .Scroll import getScroll as scroll
+# from .Scroll import getAllScroll
+from .inshorts import getNews
 
 def getAll():
-    return getAllScroll()
+    # return getAllScroll()
+    return getNews("all")
 
 def getScience():
-    return scroll('science')
+    return getNews('science')
 def getTech():
-    return scroll('technology')
+    return getNews('technology')
 def getWorld():
-    return scroll('world')
+    return getNews('world')
 def getCulture():
-    return scroll('culture')
+    return getNews('culture')
 def getIndia():
-    return scroll('india')
+    return getNews('india')
 def getEntertainment():
-    return scroll('entertainment')
+    return getNews('entertainment')
 def getBusiness():
-    return scroll('business')
+    return getNews('business')
 def getMusic():
-    return scroll('music')
+    return getNews('music')
 def getBooks():
-    return scroll('books')
+    return getNews('books')

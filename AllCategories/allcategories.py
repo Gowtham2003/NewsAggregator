@@ -18,3 +18,7 @@ def getEntertainment():
     return getNews('entertainment')
 def getBusiness():
     return getNews('business')
+def getSports():
+    return getNews('sports')
+def getPolitics():
+    return getNews('Politics')

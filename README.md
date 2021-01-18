@@ -1,5 +1,5 @@
 # NewsAPI
-API Which Fetches News from Lot of Websites
+Python Program Which Fetches News from Lot of Websites
 
 
 ### 📝 Get News From Handpicked Websites

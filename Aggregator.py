@@ -27,13 +27,15 @@ def getIndia():
 def getAuto():
     return auto.getAuto()
 def getSports():
-    return sports.getSports()
+    return al.getSports() + sports.getSports()
 def getGaming():
     return game.getGame()
 def getAll():
     allcats =_allCat()+ getScience()+getTech()+getAuto()+getSports()+getGaming()
     random.shuffle(allcats)
     return allcats
+def getPolitics():
+    return al.getPolitics()
 
 '''
 

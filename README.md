@@ -1,4 +1,4 @@
-# NewsAPI
+# NewsAggregator (In Development)
 Python Program Which Fetches News from Lot of Websites
 
 

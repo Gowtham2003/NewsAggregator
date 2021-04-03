@@ -11,22 +11,27 @@ def getData():
         exit(-1)
     soup = bs(r.text, "lxml")
 
-    regex = re.compile('excerpt c.*')
-    dataList = soup.find("div", {"id": 'home-main-primary'}).findAll('div',class_=regex)
+    # regex = re.compile('excerpt c.*')
+    
+    dataList = soup.find("div",class_="wp-block-column").findAll("div", {"class": 'item-inner'})
+
+    #findAll('div',class_=regex)
     news = []
 
     for data in dataList:
         # print(data)
         try:
-            title = data.find("p", class_="crawl-headline").text.strip()
+            title = data.find("h3").text.strip()
         except BaseException:
             title = ""
         try:
-            newsUrl = url + data.find("a").get("href")
+            newsUrl = data.find("a").get("href")
+            if(not newsUrl.startswith("https://")):
+                newsUrl = url + newsUrl
         except BaseException:
             newsUrl = ""
         try:
-            content = data.find("p",class_="crawl-summary").text.strip()
+            content = data.find("span",class_="item-excerpt").text.strip()
         except BaseException:
             content = ""
 
@@ -44,4 +49,4 @@ def getData():
     return news
 
 # getData()
-# print(len(getData()))
+# print(getData())

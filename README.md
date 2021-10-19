@@ -1,4 +1,4 @@
-# NewsAggregator (In Development)
+# NewsAggregator (WIP)
 Python Program Which Fetches News from Lot of Websites
 
 
